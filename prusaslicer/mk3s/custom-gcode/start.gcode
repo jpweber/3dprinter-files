@@ -46,8 +46,6 @@ M140 S[first_layer_bed_temperature] ; set bed final temp
 M104 S[first_layer_temperature] ; set extruder final temp
 M109 S[first_layer_temperature] ; wait for extruder final temp
 M190 S[first_layer_bed_temperature] ; wait for bed final temp
-; load selected filament
-Tc
 M300 S40 P10 ; chirp
 ; Prime line routine
 M117 Printing prime line
@@ -55,6 +53,8 @@ G0 Z0.15 ; Restore nozzle position - (thanks tim.m30)
 M900 K0; Disable Linear Advance for prime line
 G92 E0.0 ; reset extrusion distance
 G1 Y-3.0 F1000.0 ; go outside print area
+; load selected filament
+Tc
 G1 E2 F1000 ; de-retract and push ooze
 G1 X20.0 E6  F1000.0 ; fat 20mm intro line @ 0.30
 G1 X60.0 E3.2  F1000.0 ; thin +40mm intro line @ 0.08
